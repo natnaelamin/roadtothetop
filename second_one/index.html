@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/5/solar/bootstrap.min.css"
+    />
+    <title>Customers List</title>
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="display-4 text-center">
+        <span class="text-primary">Victor</span>CustomersList
+      </h1>
+      <form id="customer-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="location">location</label>
+          <input type="text" id="location" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone#</label>
+          <input type="text" id="phone" class="form-control" />
+        </div>
+        <input
+          type="submit"
+          value="Add Customer"
+          class="btn btn-primary btn-block"
+        />
+      </form>
+      <table class="table table-striped mt-5">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>location</th>
+            <th>Phone#</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="customer-list"></tbody>
+      </table>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
