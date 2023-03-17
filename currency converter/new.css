@@ -1,0 +1,16 @@
+body {
+  margin-top: 70px;
+  background: #333;
+  color: #fff;
+}
+.pound {
+  background: hsla(239, 100%, 50%, 0.24);
+}
+
+.euro {
+  background: hsla(128, 100%, 50%, 0.322);
+}
+
+.birr {
+  background: hsla(2, 100%, 50%, 0.712);
+}
