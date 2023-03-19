@@ -13,16 +13,35 @@ class UI {
     customers.forEach((customer) => UI.addCustomerToList(customer));
   }
   static addCustomerToList(customer) {
-    const list = document.querySelector("#customer-list");
-    const row = document.createElement("tr");
-    row.innerHTML = `
-    <td>${customer.name}</td>
-    <td>${customer.location}</td>
-    <td>${customer.phone}</td>
-    <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-    `;
-    list.appendChild(row);
+    let table = document.querySelector("table");
+    const temp = document.createElement("tbody");
+    let template = `
+                <tr>
+                    <td>${customer.name}</td>
+                    <td>${customer.location}</td>
+                    <td>${customer.phone}</td>
+                    <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+                </tr>`;
+    temp.innerHTML += template;
+    table.appendChild(temp);
+
+    var tr = temp;
+    let list = [];
+    list.push(customer.name);
+    var filter = document.getElementById("search");
+    filter.addEventListener("keyup", filteritems);
+    // // filter items
+    function filteritems(e) {
+      var text = e.target.value.toLowerCase();
+      //   // get list
+      if (list[0].startsWith(text)) {
+        tr.style.display = "";
+      } else {
+        tr.style.display = "none";
+      }
+    }
   }
+
   static deleteCustomer(el) {
     if (el.classList.contains("delete")) {
       el.parentElement.parentElement.remove();
@@ -45,6 +64,7 @@ class UI {
     document.querySelector("#phone").value = "";
   }
 }
+
 // Store Class
 class Store {
   static getcustomers() {
@@ -121,7 +141,7 @@ document.querySelector("#customer-form").addEventListener("submit", (e) => {
 });
 
 // Event: Remove a customer
-document.querySelector("#customer-list").addEventListener("click", (e) => {
+document.querySelector("#table").addEventListener("click", (e) => {
   if (e.target.classList.contains("delete")) {
     if (confirm("Are You Sure you wanna remove this person?")) {
       // Remove customer from UI
